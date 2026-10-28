@@ -1,0 +1,24 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.9, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\prith\Desktop\New folder\PES1UG24AM204_SE_LAB1\lab6
+collected 2 items
+
+test_hotel_booking.py ..                                                 [100%]
+
+============================== 2 passed in 0.17s ==============================
+
+1. LINE COVERAGE (INITIAL STARTER TESTS):
+Name                    Stmts   Miss  Cover   Missing
+-----------------------------------------------------
+hotel_booking.py           32     18    44%   6, 8, 11, 14, 16, 23-29, 33-39
+test_hotel_booking.py       6      0   100%
+-----------------------------------------------------
+TOTAL                      38     18    53%
+
+2. BRANCH COVERAGE (INITIAL STARTER TESTS):
+Name                    Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------------
+hotel_booking.py           32     18     22      6    37%   6, 8, 11, 14, 16, 23-29, 33-39
+test_hotel_booking.py       6      0      0      0   100%
+-------------------------------------------------------------------
+TOTAL                      38     18     22      6    43%
