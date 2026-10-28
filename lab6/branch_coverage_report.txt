@@ -1,0 +1,19 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.9, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\prith\Desktop\New folder\PES1UG24AM204_SE_LAB1\lab6
+collected 17 items
+
+BranchCoverageTest_hotel_booking.py .................                    [100%]
+
+============================= 17 passed in 0.16s ==============================
+
+BRANCH COVERAGE REPORT:
+coverage run --branch -m pytest BranchCoverageTest_hotel_booking.py
+coverage report -m
+
+Name                                  Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------
+BranchCoverageTest_hotel_booking.py      40      0      0      0   100%
+hotel_booking.py                         32      0     22      0   100%
+---------------------------------------------------------------------------------
+TOTAL                                    72      0     22      0   100%
