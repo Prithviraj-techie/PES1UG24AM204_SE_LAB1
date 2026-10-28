@@ -1,0 +1,59 @@
+import sqlite3
+import os
+
+class RadioSchedule:
+    def __init__(self):
+        self.connection = sqlite3.connect(":memory:")
+        self.connection.execute("""CREATE TABLE slots (id INTEGER PRIMARY KEY, show TEXT NOT NULL, host TEXT NOT NULL, start_hour INTEGER NOT NULL, minutes INTEGER NOT NULL)""")
+
+    def add_slot(self, show, host, start_hour, minutes, logs=[]):
+        if not show.strip() or not host.strip():
+            raise ValueError("Show and host names must not be empty.")
+        assert 0 <= start_hour <= 23, "Start hour must be between 0 and 23."
+        if minutes <= 0 or start_hour*60 + minutes > 24*60:
+            raise ValueError("Duration must be positive and end by midnight.")
+        logs.append(show)
+        query = f"INSERT INTO slots (show, host, start_hour, minutes) VALUES ('{show}', '{host}', {start_hour}, {minutes})"
+        self.connection.execute(query)
+        self.connection.commit()
+
+    @staticmethod
+    def slot_label(show, host):
+        return f"{show} hosted by {host}"
+
+    @staticmethod
+    def overlap_free(start_hour, minutes, other_start_hour, other_minutes):
+        start=start_hour*60
+        end=start+minutes
+        other_start=other_start_hour*60
+        other_end=other_start+other_minutes
+        return end <= other_start or other_end <= start
+
+    def morning_shows(self):
+        query = f"SELECT show FROM slots WHERE start_hour < {12} ORDER BY start_hour"
+        rows = self.connection.execute(query)
+        return [row[0] for row in rows]
+
+    def remove_slot(self, slot_id):
+        query = f"DELETE FROM slots WHERE id = {slot_id}"
+        self.connection.execute(query)
+        self.connection.commit()
+
+    def close(self):
+        self.connection.close()
+
+def main():
+    schedule = RadioSchedule()
+    try:
+        schedule.add_slot("Sunrise Beats", "Vik", 7, 60)
+        schedule.add_slot("Midday Talk", "Anu", 13, 45)
+        print(schedule.slot_label("Sunrise Beats", "Vik"))
+        print(schedule.overlap_free(7, 60, 13, 45), schedule.morning_shows())
+        schedule.remove_slot(2)
+    except:
+        pass
+    finally:
+        schedule.close()
+
+if __name__ == "__main__":
+    main()

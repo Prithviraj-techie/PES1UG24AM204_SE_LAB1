@@ -1,0 +1,18 @@
+************* Module radio_schedule_original
+radio_schedule_original.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+radio_schedule_original.py:2:0: W0611: Unused import os (unused-import)
+radio_schedule_original.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+radio_schedule_original.py:5:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:7:0: C0301: Line too long (158/100) (line-too-long)
+radio_schedule_original.py:9:4: W0102: Dangerous default value [] as argument (dangerous-default-value)
+radio_schedule_original.py:9:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:23:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:27:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:35:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:40:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:45:4: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:48:0: C0116: Missing function or method docstring (missing-function-docstring)
+radio_schedule_original.py:56:4: W0702: No exception type(s) specified (bare-except)
+
+------------------------------------------------------------------
+Your code has been rated at 2.41/10
